@@ -1,9 +1,8 @@
 package com.chanoktrue.bottomnavigationdemo.HomeView
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.OutlinedButton
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,6 +13,32 @@ import com.chanoktrue.bottomnavigationdemo.HomeNavigation.HomeMenu
 
 @Composable
 fun HomeView(navController: NavController) {
+
+    Scaffold(
+        topBar = { HeaderView()}
+    ) {
+        BodyView(navController = navController)
+    }
+
+}
+
+@Composable
+fun HeaderView() {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+    ) {
+        OutlinedButton(onClick = { /*TODO*/ }) {
+            Text(text = "< Back")
+        }
+        OutlinedButton(onClick = { /*TODO*/ }) {
+            Text(text = "Done")
+        }
+    }
+}
+
+@Composable
+fun BodyView(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -25,7 +50,6 @@ fun HomeView(navController: NavController) {
             }
         ) {
             Text(text = "Go to Home Details >>")
-        }    
+        }
     }
-    
 }
